@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		background: #0A0A0B;
+		color: #F5F5F0;
+		font-family: Inter, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	::selection {
+		background: color-mix(in oklab, #E8B14A 30%, transparent);
+		color: #F5F5F0;
+	}
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+	background: #333;
+	border-radius: 3px;
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "slug": "lumina",
+    "name": "Lumina",
+    "tagline": "On-device skincare ingredient analyzer",
+    "type": "Mobile App",
+    "platform": "iOS · Android",
+    "released": "Q3 2025",
+    "role": "Full-stack Developer & Designer",
+    "icon": "/apps/lumina/icon.png",
+    "heroImage": "/apps/lumina/hero.png",
+    "description": "Lumina scans INCI ingredient lists from product labels using on-device ML and flags comedogenic, irritating, or allergenic compounds against the user's skin profile.",
+    "features": [
+      "On-device OCR for INCI ingredient lists",
+      "Comedogenicity & irritation risk scoring",
+      "Personalized skin-profile matching",
+      "Ingredient-by-ingredient breakdown",
+      "Offline-first local database"
+    ],
+    "tech": ["Flutter", "Dart", "Local Storage"],
+    "links": {
+      "github": "https://github.com/iawaisahmd",
+      "playStore": "",
+      "appStore": ""
+    },
+    "stats": { "platforms": 2, "languages": 5, "downloads": "", "rating": "" },
+    "screenshots": ["/apps/lumina/shot-1.png", "/apps/lumina/shot-2.png"],
+    "featured": true,
+    "accent": "#E8B14A"
+  },
+  {
+    "slug": "packsavvy",
+    "name": "PackSavvy",
+    "tagline": "Smart trip packing list generator",
+    "type": "Mobile App",
+    "platform": "iOS · Android",
+    "released": "Q4 2025",
+    "role": "Full-stack Developer & Designer",
+    "icon": "/apps/packsavvy/icon.png",
+    "heroImage": "/apps/packsavvy/hero.png",
+    "description": "PackSavvy builds packing lists from trip metadata — destination weather, duration, and activities — with smart deduplication, weight tracking, and collaborative checklists.",
+    "features": [
+      "Weather-aware list generation",
+      "Activity-based item suggestions",
+      "Smart deduplication across trips",
+      "Collaborative checklists with live sync",
+      "Bag weight & volume tracking"
+    ],
+    "tech": ["Flutter", "Dart", "Local Storage"],
+    "links": {
+      "github": "https://github.com/iawaisahmd",
+      "playStore": "",
+      "appStore": ""
+    },
+    "stats": { "platforms": 2, "languages": 5, "downloads": "", "rating": "" },
+    "screenshots": ["/apps/packsavvy/shot-1.png", "/apps/packsavvy/shot-2.png"],
+    "featured": true,
+    "accent": "#E8B14A"
+  },
+  {
+    "slug": "shukar-reminder",
+    "name": "Shukar Reminder",
+    "tagline": "Daily gratitude reminder companion",
+    "type": "Mobile App",
+    "platform": "iOS · Android",
+    "released": "Q1 2026",
+    "role": "Full-stack Developer & Designer",
+    "icon": "/apps/shukar/icon.png",
+    "heroImage": "/apps/shukar/hero.png",
+    "description": "Shukar Reminder nudges you to pause and reflect on gratitude throughout the day, with a journal, streak tracking, and reflection prompts.",
+    "features": [
+      "Gentle timed gratitude nudges",
+      "Daily reflection journal",
+      "Streak & consistency tracking",
+      "Curated reflection prompts",
+      "Insights on gratitude patterns"
+    ],
+    "tech": ["Flutter", "Dart", "Local Storage"],
+    "links": {
+      "github": "https://github.com/iawaisahmd",
+      "playStore": "",
+      "appStore": ""
+    },
+    "stats": { "platforms": 2, "languages": 5, "downloads": "", "rating": "" },
+    "screenshots": ["/apps/shukar/shot-1.png", "/apps/shukar/shot-2.png"],
+    "featured": false,
+    "accent": "#E8B14A"
+  }
+]
