@@ -112,7 +112,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
   const goBack = () => {
     setCurrentPage('portfolio');
     setActiveSection('home');
-    window.history.pushState(null, '', '#home');
+    window.history.pushState(null, '', '/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -134,7 +134,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
   };
 
   const PostMeta = ({ post }: { post: BlogPost }) => (
-    <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono text-zinc-500 font-semibold">
+    <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono text-slate-500 dark:text-zinc-500 font-semibold">
       <span className="px-2 py-1 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20">{post.category}</span>
       <span>{post.date}</span>
       <span>{post.readTime}</span>
@@ -142,9 +142,9 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
   );
 
   return (
-    <div id="blog" className="pt-28 pb-24 bg-[#030303] text-white min-h-screen overflow-hidden">
+    <div id="blog" className="pt-28 pb-24 bg-slate-50 dark:bg-[#030303] text-slate-900 dark:text-white min-h-screen overflow-hidden transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <button onClick={goBack} className="group inline-flex items-center gap-2 text-zinc-500 hover:text-pink-400 text-xs font-mono mb-16 transition-colors cursor-pointer">
+        <button onClick={goBack} className="group inline-flex items-center gap-2 text-slate-500 dark:text-zinc-500 hover:text-pink-500 dark:hover:text-pink-400 text-xs font-mono mb-16 transition-colors cursor-pointer">
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Portfolio</span>
         </button>
@@ -165,7 +165,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
                 className={`px-4 py-2 rounded-full text-xs font-bold shrink-0 border transition-colors cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-pink-500 text-white border-pink-500'
-                    : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
+                    : 'bg-white dark:bg-zinc-950 border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-zinc-700'
                 }`}
               >
                 {cat === 'All' ? `All Posts (${blogPostsData.length})` : cat}
@@ -175,24 +175,24 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
 
           <div className="flex items-center gap-2">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 dark:text-zinc-500" />
               <input
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
                 placeholder="Search"
-                className="w-40 md:w-56 pl-9 pr-3 py-2 rounded-full bg-zinc-950 border border-zinc-800 text-xs text-white placeholder:text-zinc-600 focus:outline-none focus:border-pink-500"
+                className="w-40 md:w-56 pl-9 pr-3 py-2 rounded-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-600 focus:outline-none focus:border-pink-500"
               />
             </div>
-            <button className="h-9 w-9 rounded-full bg-zinc-950 border border-zinc-800 text-zinc-400 flex items-center justify-center">
+            <button className="h-9 w-9 rounded-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400 flex items-center justify-center">
               <Rss className="h-4 w-4" />
             </button>
           </div>
         </section>
 
         {filteredPosts.length === 0 && (
-          <div className="text-center py-20 border border-zinc-900 rounded-3xl">
-            <BookOpen className="h-10 w-10 text-zinc-700 mx-auto mb-3" />
-            <p className="text-zinc-500 text-sm">No articles match your search or filters.</p>
+          <div className="text-center py-20 border border-slate-200 dark:border-zinc-900 rounded-3xl">
+            <BookOpen className="h-10 w-10 text-slate-300 dark:text-zinc-700 mx-auto mb-3" />
+            <p className="text-slate-500 dark:text-zinc-500 text-sm">No articles match your search or filters.</p>
           </div>
         )}
 
@@ -200,7 +200,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
           <motion.article
             whileHover={{ y: -4 }}
             onClick={() => setActivePost(featuredPost)}
-            className="grid lg:grid-cols-2 overflow-hidden rounded-3xl border border-zinc-900 bg-black hover:border-zinc-800 transition-all cursor-pointer mb-10"
+            className="grid lg:grid-cols-2 overflow-hidden rounded-3xl border border-slate-200 dark:border-zinc-900 bg-white dark:bg-black hover:border-slate-300 dark:hover:border-zinc-800 transition-all cursor-pointer mb-10 shadow-lg dark:shadow-none"
           >
             <ArticleVisual post={featuredPost} featured />
             <div className="p-7 md:p-10 flex flex-col justify-center">
@@ -208,12 +208,12 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
               <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-tight mt-5 mb-5 group-hover:text-pink-400">
                 {featuredPost.title}
               </h2>
-              <p className="text-sm md:text-base text-zinc-400 leading-relaxed line-clamp-3 mb-6">
+              <p className="text-sm md:text-base text-slate-600 dark:text-zinc-400 leading-relaxed line-clamp-3 mb-6">
                 {featuredPost.summary}
               </p>
               <div className="flex flex-wrap gap-2 mb-7">
                 {featuredPost.tags.slice(0, 6).map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-[10px] text-zinc-400 font-mono">{tag}</span>
+                  <span key={tag} className="px-2.5 py-1 rounded-full bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-[10px] text-slate-500 dark:text-zinc-400 font-mono">{tag}</span>
                 ))}
               </div>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-pink-400">
@@ -229,14 +229,14 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
               key={post.id}
               whileHover={{ y: -4 }}
               onClick={() => setActivePost(post)}
-              className="overflow-hidden rounded-3xl border border-zinc-900 bg-black hover:border-zinc-800 transition-all cursor-pointer"
+              className="overflow-hidden rounded-3xl border border-slate-200 dark:border-zinc-900 bg-white dark:bg-black hover:border-slate-300 dark:hover:border-zinc-800 transition-all cursor-pointer shadow-lg dark:shadow-none"
             >
               <ArticleVisual post={post} />
               <div className="p-6">
                 <PostMeta post={post} />
-                <h3 className="text-xl font-black leading-tight mt-4 mb-3 text-white">{post.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2 mb-5">{post.summary}</p>
-                <span className="text-[10px] font-mono text-zinc-500">{post.readTime}</span>
+                <h3 className="text-xl font-black leading-tight mt-4 mb-3 text-slate-900 dark:text-white">{post.title}</h3>
+                <p className="text-sm text-slate-500 dark:text-zinc-500 leading-relaxed line-clamp-2 mb-5">{post.summary}</p>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-500">{post.readTime}</span>
               </div>
             </motion.article>
           ))}

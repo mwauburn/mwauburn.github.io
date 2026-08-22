@@ -23,6 +23,17 @@ import ShukarDailyDetail from './components/ShukarDailyDetail';
 import LuminaDetail from './components/LuminaDetail';
 import PacksavvyDetail from './components/PacksavvyDetail';
 
+const PAGE_PATHS: Record<string, string> = {
+  blog: '/blog',
+  projects: '/projects',
+  contact: '/contact',
+  terms: '/terms',
+  privacy: '/privacy',
+  'shukar-daily': '/apps/shukar-daily',
+  lumina: '/apps/lumina',
+  packsavvy: '/apps/packsavvy'
+};
+
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -86,15 +97,15 @@ export default function App() {
         setCurrentPage('projects');
         setActiveSection('projects');
         window.scrollTo(0, 0);
-      } else if (hash === '#shukar-daily' || pathname === '/shukar-daily' || pathname.endsWith('/shukar-daily')) {
+      } else if (hash === '#shukar-daily' || pathname === '/shukar-daily' || pathname.endsWith('/apps/shukar-daily') || pathname.endsWith('/shukar-daily')) {
         setCurrentPage('shukar-daily');
         setActiveSection('shukar-daily');
         window.scrollTo(0, 0);
-      } else if (hash === '#lumina' || pathname === '/lumina' || pathname.endsWith('/lumina')) {
+      } else if (hash === '#lumina' || pathname === '/lumina' || pathname.endsWith('/apps/lumina') || pathname.endsWith('/lumina')) {
         setCurrentPage('lumina');
         setActiveSection('lumina');
         window.scrollTo(0, 0);
-      } else if (hash === '#packsavvy' || pathname === '/packsavvy' || pathname.endsWith('/packsavvy')) {
+      } else if (hash === '#packsavvy' || pathname === '/packsavvy' || pathname.endsWith('/apps/packsavvy') || pathname.endsWith('/packsavvy')) {
         setCurrentPage('packsavvy');
         setActiveSection('packsavvy');
         window.scrollTo(0, 0);
@@ -126,36 +137,13 @@ export default function App() {
     };
   }, [language]);
 
-  // Sync URL when page or language changes (for clean SEO URLs)
+  // Sync URL when page changes (for clean shareable URLs)
   useEffect(() => {
-    const pathname = window.location.pathname;
-    if (currentPage === 'terms') {
-      const targetPath = `/${language}/terms`;
-      if (pathname !== targetPath) {
-        window.history.pushState(null, '', targetPath);
-      }
-    } else if (currentPage === 'privacy') {
-      const targetPath = `/${language}/privacy`;
-      if (pathname !== targetPath) {
-        window.history.pushState(null, '', targetPath);
-      }
-    } else if (currentPage === 'shukar-daily') {
-      const targetPath = `/${language}/shukar-daily`;
-      if (pathname !== targetPath) {
-        window.history.pushState(null, '', targetPath);
-      }
-    } else if (currentPage === 'lumina') {
-      const targetPath = `/${language}/lumina`;
-      if (pathname !== targetPath) {
-        window.history.pushState(null, '', targetPath);
-      }
-    } else if (currentPage === 'packsavvy') {
-      const targetPath = `/${language}/packsavvy`;
-      if (pathname !== targetPath) {
-        window.history.pushState(null, '', targetPath);
-      }
+    const targetPath = PAGE_PATHS[currentPage];
+    if (targetPath && window.location.pathname !== targetPath) {
+      window.history.pushState(null, '', targetPath);
     }
-  }, [currentPage, language]);
+  }, [currentPage]);
 
   // Sync dark class on document root
   useEffect(() => {

@@ -193,7 +193,9 @@ export default function About({ t, language }: AboutProps) {
 
               <div className="mt-8">
                 <a
-                  href="#contact"
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 text-sm font-sans font-bold shadow-sm transition-all hover:scale-105 active:scale-95"
                 >
                   <Download className="h-4.5 w-4.5 text-emerald-600" />

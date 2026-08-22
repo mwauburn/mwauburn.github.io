@@ -312,6 +312,7 @@ export default function ProjectsGallery({ t, language, setCurrentPage, setActive
   const openProject = (projectId: string) => {
     if (projectId === 'shukar-daily' || projectId === 'lumina' || projectId === 'packsavvy') {
       setCurrentPage(projectId);
+      window.history.pushState(null, '', `/apps/${projectId}`);
       window.scrollTo(0, 0);
     }
   };
@@ -955,7 +956,7 @@ export default function ProjectsGallery({ t, language, setCurrentPage, setActive
             onClick={() => {
               setCurrentPage('portfolio');
               setActiveSection('home');
-              window.history.pushState(null, '', '#home');
+              window.history.pushState(null, '', '/');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="group flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800/80 text-slate-700 dark:text-zinc-300 hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-500/30 transition-all font-semibold font-sans text-xs cursor-pointer shadow-sm hover:scale-102 active:scale-98"

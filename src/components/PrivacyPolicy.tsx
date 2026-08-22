@@ -36,7 +36,7 @@ export default function PrivacyPolicy({ t, language, setCurrentPage, setActiveSe
 
   const handleGoToTerms = () => {
     setCurrentPage('terms');
-    window.history.pushState(null, '', `/${language}/terms`);
+    window.history.pushState(null, '', '/terms');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

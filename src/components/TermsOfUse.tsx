@@ -36,7 +36,7 @@ export default function TermsOfUse({ t, language, setCurrentPage, setActiveSecti
 
   const handleGoToPrivacy = () => {
     setCurrentPage('privacy');
-    window.history.pushState(null, '', `/${language}/privacy`);
+    window.history.pushState(null, '', '/privacy');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

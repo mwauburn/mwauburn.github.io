@@ -46,6 +46,7 @@ export default function Projects({ t, language, setCurrentPage }: ProjectsProps)
   const openProject = (project: Project) => {
     if ((project.id === 'shukar-daily' || project.id === 'lumina' || project.id === 'packsavvy') && setCurrentPage) {
       setCurrentPage(project.id);
+      window.history.pushState(null, '', `/apps/${project.id}`);
       window.scrollTo(0, 0);
       return;
     }

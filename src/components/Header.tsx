@@ -60,6 +60,12 @@ export default function Header({
     { id: 'contact', label: t.navContact }
   ];
 
+  const pushPath = (path: string) => {
+    if (window.location.pathname !== path || window.location.hash) {
+      window.history.pushState(null, '', path);
+    }
+  };
+
   const handleNavClick = (id: string) => {
     setIsOpen(false);
     setCommandPaletteOpen(false);
@@ -67,23 +73,23 @@ export default function Header({
     if (id === 'blog') {
       setCurrentPage('blog');
       setActiveSection('blog');
-      window.history.pushState(null, '', '#blog');
+      pushPath('/blog');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (id === 'projects') {
       setCurrentPage('projects');
       setActiveSection('projects');
-      window.history.pushState(null, '', '#projects');
+      pushPath('/projects');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (id === 'contact') {
       setCurrentPage('contact');
       setActiveSection('contact');
-      window.history.pushState(null, '', '#contact');
+      pushPath('/contact');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       if (currentPage !== 'portfolio') {
         setCurrentPage('portfolio');
         setActiveSection(id);
-        window.history.pushState(null, '', `#${id}`);
+        pushPath(id === 'home' ? '/' : `/#${id}`);
         setTimeout(() => {
           const element = document.getElementById(id);
           if (element) {
@@ -92,7 +98,7 @@ export default function Header({
         }, 80);
       } else {
         setActiveSection(id);
-        window.history.pushState(null, '', `#${id}`);
+        pushPath(id === 'home' ? '/' : `/#${id}`);
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });

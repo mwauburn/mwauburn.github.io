@@ -125,7 +125,7 @@ export default function Connect({ t, language, setCurrentPage }: ConnectProps) {
             <button
               onClick={() => {
                 setCurrentPage('contact');
-                window.history.pushState(null, '', '#contact');
+                window.history.pushState(null, '', '/contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className="group flex items-center gap-2.5 px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-sans font-extrabold text-sm shadow-md hover:bg-pink-500 hover:dark:bg-pink-500 hover:text-white hover:dark:text-white transition-all cursor-pointer hover:scale-105 active:scale-95"

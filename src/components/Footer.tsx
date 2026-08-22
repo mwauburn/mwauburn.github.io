@@ -19,10 +19,24 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
     if (setCurrentPage) {
       setCurrentPage('portfolio');
     }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.pushState(null, '', id === 'home' ? '/' : `/#${id}`);
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
+  };
+
+  const handleNavToPage = (page: 'blog' | 'projects' | 'contact') => {
+    if (setCurrentPage) {
+      setCurrentPage(page);
     }
+    if (setActiveSection) {
+      setActiveSection(page);
+    }
+    window.history.pushState(null, '', `/${page}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNavToLegal = (page: 'privacy' | 'terms') => {
@@ -32,7 +46,7 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
     if (setActiveSection) {
       setActiveSection(page);
     }
-    window.history.pushState(null, '', `/${language}/${page}`);
+    window.history.pushState(null, '', `/${page}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -77,7 +91,7 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
                 </li>
                 <li>
                   <button
-                    onClick={() => handleScrollTo('projects')}
+                    onClick={() => handleNavToPage('projects')}
                     className="text-xs font-sans font-semibold text-slate-500 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 transition-colors cursor-pointer"
                   >
                     Projects
@@ -85,7 +99,7 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
                 </li>
                 <li>
                   <button
-                    onClick={() => handleScrollTo('blog')}
+                    onClick={() => handleNavToPage('blog')}
                     className="text-xs font-sans font-semibold text-slate-500 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 transition-colors cursor-pointer"
                   >
                     Blog
@@ -110,7 +124,7 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
               <ul className="space-y-2">
                 <li>
                   <a
-                    href={`/${language}/privacy`}
+                    href="/privacy"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavToLegal('privacy');
@@ -122,7 +136,7 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
                 </li>
                 <li>
                   <a
-                    href={`/${language}/terms`}
+                    href="/terms"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavToLegal('terms');

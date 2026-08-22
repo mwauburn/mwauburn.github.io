@@ -118,6 +118,7 @@ export default function AppDetailTemplate({
   const handleBack = () => {
     setCurrentPage('projects');
     setActiveSection('projects');
+    window.history.pushState(null, '', '/projects');
     window.scrollTo(0, 0);
   };
 
