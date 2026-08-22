@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy - Shukar Daily</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030303;
+      --panel: rgba(12, 12, 14, 0.78);
+      --panel-strong: rgba(8, 8, 10, 0.94);
+      --line: rgba(255,255,255,0.09);
+      --text: #f8fafc;
+      --muted: #a1a1aa;
+      --soft: #71717a;
+      --accent: #10b981;
+      --glow: rgba(16,185,129,0.20);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(760px 420px at 22% 0%, var(--glow), transparent 65%),
+        radial-gradient(520px 360px at 90% 8%, rgba(236,72,153,0.12), transparent 60%),
+        linear-gradient(180deg, #020202 0%, #050505 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 56px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .mark { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); color: var(--accent); }
+    .nav a { text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 800; border: 1px solid var(--line); background: rgba(255,255,255,0.04); padding: 9px 14px; border-radius: 999px; }
+    .hero { padding: 36px 0 34px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-size: 10px; font-weight: 900; letter-spacing: .34em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { margin: 0; font-size: clamp(44px, 8vw, 88px); line-height: .92; letter-spacing: -0.055em; font-weight: 950; }
+    .lead { max-width: 720px; margin: 24px 0 0; color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0 0; }
+    .meta div, section, .contact { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; backdrop-filter: blur(18px); }
+    .meta div { padding: 16px; }
+    .meta span { display: block; color: var(--soft); font-size: 10px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .meta strong { display: block; margin-top: 4px; font-size: 14px; }
+    main { display: grid; gap: 18px; margin-top: 34px; }
+    section { padding: 26px; }
+    h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -0.02em; }
+    p { margin: 0 0 13px; color: var(--muted); }
+    ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    li { margin: 8px 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .contact { margin-top: 18px; padding: 24px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .contact p { margin: 0; }
+    .email { color: var(--accent); font-weight: 900; text-decoration: none; white-space: nowrap; }
+    footer { color: var(--soft); font-size: 12px; text-align: center; margin-top: 38px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 24px, 1040px); padding-top: 28px; }
+      .nav, .contact { align-items: flex-start; flex-direction: column; }
+      .meta, .grid { grid-template-columns: 1fr; }
+      section { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand"><span class="mark">*</span><span>Shukar Daily</span></div>
+      <a href="/en">Back to Portfolio</a>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Privacy Policy</div>
+      <h1>Shukar Daily</h1>
+      <p class="lead">A calm gratitude journal and counter app built around private reflection and local-first daily progress.</p>
+      <div class="meta">
+        <div><span>Last Updated</span><strong>August 23, 2026</strong></div>
+        <div><span>Contact</span><strong>leonicxapp@gmail.com</strong></div>
+        <div><span>Data Model</span><strong>Local first</strong></div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Overview</h2>
+        <p>This privacy policy explains how Shukar Daily handles information when you use the app. The app is designed to collect only what is needed for the app experience and to keep personal app data on your device whenever possible.</p>
+        <p>If you have questions about this policy, contact us at <a class="email" href="mailto:leonicxapp@gmail.com">leonicxapp@gmail.com</a>.</p>
+      </section>
+
+      <div class="grid">
+        <section>
+          <h2>Information We Store</h2>
+          <ul>
+                        <li>Gratitude counter totals and streak progress.</li>
+            <li>Private gratitude journal entries saved on your device.</li>
+            <li>Reminder preferences and app settings.</li>
+            <li>Language, theme, and local app preferences.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Information We Do Not Sell</h2>
+          <ul>
+            <li>We do not sell your personal data.</li>
+            <li>We do not use your app data for advertising profiles.</li>
+            <li>We do not share private app content with data brokers.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section>
+        <h2>Local Storage</h2>
+        <p>Most app information is stored locally on your device. If you uninstall the app or clear app storage, locally stored data may be deleted. We recommend using your device backup options if you want to preserve local app data.</p>
+      </section>
+
+      <section>
+        <h2>Third Party Services</h2>
+        <p>The app may use platform services such as Google Play, app stores, device notifications, camera or photo picker permissions, and operating system storage APIs. These services are governed by their own privacy policies and device permission controls.</p>
+      </section>
+
+      <section>
+        <h2>Permissions</h2>
+        <p>When the app requests a device permission, it is used only for the related feature. You can deny or revoke permissions in your device settings, but some features may stop working after permission is removed.</p>
+      </section>
+
+      <section>
+        <h2>Children's Privacy</h2>
+        <p>The app is not intended to knowingly collect personal information from children. If you believe a child has provided personal information, contact us and we will help review the issue.</p>
+      </section>
+
+      <section>
+        <h2>Policy Updates</h2>
+        <p>We may update this policy when app features, store requirements, or legal obligations change. The updated policy will be posted on this page with a revised date.</p>
+      </section>
+    </main>
+
+    <div class="contact">
+      <div>
+        <h2>Contact</h2>
+        <p>For privacy questions, deletion requests, or app support, email us.</p>
+      </div>
+      <a class="email" href="mailto:leonicxapp@gmail.com">leonicxapp@gmail.com</a>
+    </div>
+
+    <footer>Copyright 2026 Awais Ahmad. All rights reserved.</footer>
+  </div>
+</body>
+</html>
