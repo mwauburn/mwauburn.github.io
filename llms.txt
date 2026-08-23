@@ -1,6 +1,6 @@
 # Awais Ahmad Portfolio
 
-> Portfolio website for Awais Ahmad, a software engineer and full-stack mobile app developer focused on Flutter, React, TypeScript, and product-focused app development.
+> Awais Ahmad is a Flutter and mobile app developer focused on Flutter apps, Android development, AI-powered mobile apps, Firebase, and product-focused MVP development.
 
 ## Main Pages
 
