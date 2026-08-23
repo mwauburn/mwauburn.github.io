@@ -38,6 +38,12 @@ const articleVisuals = {
     accent: 'text-amber-300',
     label: 'OCR + AI'
   },
+  'flutter-state-management-2026': {
+    icon: Layers,
+    gradient: 'from-emerald-950 via-slate-950 to-teal-950',
+    accent: 'text-emerald-300',
+    label: 'State Management'
+  },
   'mastering-react-motion-animations': {
     icon: Layers,
     gradient: 'from-violet-950 via-slate-950 to-cyan-950',
@@ -69,6 +75,17 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
     navigator.clipboard.writeText(text);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
+  };
+
+  const openPost = (post: BlogPost) => {
+    if (post.id === 'flutter-state-management-2026') {
+      setCurrentPage('flutter-state-management');
+      setActiveSection('blog');
+      window.history.pushState(null, '', '/blog/flutter-state-management-2026');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    setActivePost(post);
   };
 
   const renderBlogContent = (content: string) => {
@@ -199,7 +216,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
         {featuredPost && (
           <motion.article
             whileHover={{ y: -4 }}
-            onClick={() => setActivePost(featuredPost)}
+            onClick={() => openPost(featuredPost)}
             className="grid lg:grid-cols-2 overflow-hidden rounded-3xl border border-slate-200 dark:border-zinc-900 bg-white dark:bg-black hover:border-slate-300 dark:hover:border-zinc-800 transition-all cursor-pointer mb-10 shadow-lg dark:shadow-none"
           >
             <ArticleVisual post={featuredPost} featured />
@@ -228,7 +245,7 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
             <motion.article
               key={post.id}
               whileHover={{ y: -4 }}
-              onClick={() => setActivePost(post)}
+              onClick={() => openPost(post)}
               className="overflow-hidden rounded-3xl border border-slate-200 dark:border-zinc-900 bg-white dark:bg-black hover:border-slate-300 dark:hover:border-zinc-800 transition-all cursor-pointer shadow-lg dark:shadow-none"
             >
               <ArticleVisual post={post} />

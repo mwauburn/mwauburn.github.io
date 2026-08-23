@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Blog from './components/Blog';
+import BlogPostPage from './components/BlogPostPage';
 import ProjectsGallery from './components/ProjectsGallery';
 import TheWall from './components/TheWall';
 import Achievements from './components/Achievements';
@@ -31,7 +32,8 @@ const PAGE_PATHS: Record<string, string> = {
   privacy: '/privacy',
   'shukar-daily': '/apps/shukar-daily',
   lumina: '/apps/lumina',
-  packsavvy: '/apps/packsavvy'
+  packsavvy: '/apps/packsavvy',
+  'flutter-state-management': '/blog/flutter-state-management-2026'
 };
 
 export default function App() {
@@ -44,7 +46,7 @@ export default function App() {
     return true; // Default dark theme
   });
   const [activeSection, setActiveSection] = useState<string>('home');
-  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy'>('portfolio');
+  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy' | 'flutter-state-management'>('portfolio');
 
   // Apply dark class to <html> element whenever darkMode changes
   useEffect(() => {
@@ -88,6 +90,10 @@ export default function App() {
       } else if (pathname.endsWith('/privacy') || pathname.includes('/privacy') || hash === '#privacy') {
         setCurrentPage('privacy');
         setActiveSection('privacy');
+        window.scrollTo(0, 0);
+      } else if (pathname.includes('/blog/flutter-state-management-2026') || hash === '#flutter-state-management-2026') {
+        setCurrentPage('flutter-state-management');
+        setActiveSection('blog');
         window.scrollTo(0, 0);
       } else if (hash === '#blog' || pathname === '/blog' || pathname.endsWith('/blog')) {
         setCurrentPage('blog');
@@ -158,6 +164,10 @@ export default function App() {
   // Section tracker on scroll
   useEffect(() => {
     if (currentPage === 'blog') {
+      setActiveSection('blog');
+      return;
+    }
+    if (currentPage === 'flutter-state-management') {
       setActiveSection('blog');
       return;
     }
@@ -263,6 +273,13 @@ export default function App() {
           </>
         ) : currentPage === 'blog' ? (
           <Blog
+            t={t}
+            language={language}
+            setCurrentPage={setCurrentPage}
+            setActiveSection={setActiveSection}
+          />
+        ) : currentPage === 'flutter-state-management' ? (
+          <BlogPostPage
             t={t}
             language={language}
             setCurrentPage={setCurrentPage}
