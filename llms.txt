@@ -1,0 +1,25 @@
+# Awais Ahmad Portfolio
+
+> Portfolio website for Awais Ahmad, a software engineer and full-stack mobile app developer focused on Flutter, React, TypeScript, and product-focused app development.
+
+## Main Pages
+
+- [Home](https://awaisahmd.me/): Portfolio homepage with profile, skills, experience, projects, guestbook, and contact sections.
+- [Projects](https://awaisahmd.me/projects): Main project gallery featuring Shukar Daily, Lumina, and PackSavvy.
+- [Blog](https://awaisahmd.me/blog): Technical writing and development articles.
+- [Contact](https://awaisahmd.me/contact): Contact page for project inquiries.
+
+## Featured Apps
+
+- [Shukar Daily](https://awaisahmd.me/apps/shukar-daily): Offline-first Islamic gratitude journal and counter app.
+- [Lumina](https://awaisahmd.me/apps/lumina): Cosmetic ingredient scanner and skin safety analyzer.
+- [PackSavvy](https://awaisahmd.me/apps/packsavvy): Travel packing list and trip planning app.
+
+## Featured Blog Posts
+
+- [Flutter State Management in 2026](https://awaisahmd.me/blog/flutter-state-management-2026): Comparison of setState, Provider, Riverpod, and BLoC for Flutter applications.
+
+## Site Files
+
+- [Sitemap](https://awaisahmd.me/sitemap.xml): XML sitemap for public pages.
+- [Robots](https://awaisahmd.me/robots.txt): Crawling rules and sitemap location.
