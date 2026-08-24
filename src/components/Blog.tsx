@@ -13,7 +13,8 @@ import {
   Check,
   Bot,
   Cpu,
-  Layers
+  Layers,
+  Server
 } from 'lucide-react';
 import { BlogPost, TranslationDict } from '../types';
 import { blogPostsData } from '../data/portfolioData';
@@ -26,6 +27,12 @@ interface BlogProps {
 }
 
 const articleVisuals = {
+  'flutter-mcp-server-2026': {
+    icon: Server,
+    gradient: 'from-emerald-950 via-slate-950 to-cyan-950',
+    accent: 'text-emerald-300',
+    label: 'MCP + AI Tools'
+  },
   'flutter-clean-architecture-2026': {
     icon: Layers,
     gradient: 'from-blue-950 via-slate-950 to-cyan-950',
@@ -78,6 +85,10 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
   };
 
   const dedicatedPages: Record<string, { page: string; path: string }> = {
+    'flutter-mcp-server-2026': {
+      page: 'flutter-mcp-server',
+      path: '/blog/flutter-mcp-server-2026'
+    },
     'flutter-state-management-2026': {
       page: 'flutter-state-management',
       path: '/blog/flutter-state-management-2026'

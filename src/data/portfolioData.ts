@@ -217,6 +217,617 @@ export const projectsData: Project[] = [
 
 export const blogPostsData: BlogPost[] = [
   {
+    id: "flutter-mcp-server-2026",
+    title: "Flutter MCP Server in 2026: Use AI Agents with Flutter",
+    summary: "Learn how the Flutter MCP server connects AI coding agents to Dart and Flutter tools for smarter workflows with Cursor, Copilot, Codex, and Claude Code.",
+    date: "August 24, 2026",
+    readTime: "11 min read",
+    tags: ["Flutter", "MCP", "AI Agents", "Dart", "Developer Tools"],
+    category: "Flutter Development",
+    views: 214,
+    content: `AI coding tools are becoming much more useful for Flutter development in 2026.
+
+The reason is simple: assistants no longer need to rely only on the code they can read. With the **Flutter MCP server**, an AI agent can interact with Dart and Flutter tooling, inspect running apps, analyze errors, run tests, manage packages, and even trigger hot reload.
+
+Flutter now documents the Dart and Flutter MCP server as part of its official AI tooling stack, alongside agent skills, AI rules, and editor plugins.
+
+For developers, startups, and small teams, this creates a faster workflow without giving up the normal Flutter development process.
+
+> The Flutter MCP server connects AI coding assistants to Dart and Flutter developer tools, allowing them to inspect code, fix errors, run tests, manage packages, interact with running apps, and perform development tasks from natural-language instructions.
+
+## What Is the Flutter MCP Server?
+
+MCP stands for **Model Context Protocol**.
+
+It is a standard that lets AI assistants communicate with external tools and data sources.
+
+Flutter's implementation is called the **Dart and Flutter MCP server**.
+
+Instead of an AI assistant only reading source files, MCP gives it access to development tools around the project.
+
+According to Flutter's official documentation, the MCP server can:
+
+- Analyze and fix code errors
+- Resolve Dart symbols and inspect documentation
+- Interact with a running Flutter app
+- Search pub.dev
+- Manage dependencies
+- Run tests
+- Format code
+- Inspect runtime errors
+- Trigger development actions such as hot reload
+
+This makes AI coding assistants much more aware of what is happening inside your project.
+
+For app-side AI features, see [How to Add AI to a Flutter App in 2026](/blog/add-ai-flutter-app-2026).
+
+## Why Flutter MCP Matters in 2026
+
+Traditional AI coding has a weakness.
+
+The model often sees code but not the full development environment.
+
+It might not know:
+
+- Whether the project builds successfully
+- Which packages are already installed
+- What errors are appearing at runtime
+- Which widget is currently broken
+- Whether a test passes
+- What a Dart symbol actually refers to
+
+MCP helps close that gap.
+
+Flutter's 2026 AI strategy specifically mentions MCP servers as part of the effort to make AI tools work directly with Dart tooling and the analyzer.
+
+That changes AI from a code suggestion tool into something closer to a development assistant.
+
+## Flutter MCP Server vs Normal AI Coding
+
+| Feature | Normal AI Assistant | Flutter MCP Server |
+|---|---|---|
+| Reads code | Yes | Yes |
+| Analyzes Dart project context | Limited | Strong |
+| Runs tests | Sometimes manual | Supported |
+| Checks runtime errors | Limited | Supported |
+| Manages packages | Manual | Supported |
+| Searches pub.dev | Manual | Supported |
+| Interacts with running app | Limited | Supported |
+| Hot reload | Manual | Supported |
+| Uses Flutter tools directly | No | Yes |
+
+The key difference is tool access.
+
+The AI agent gets a more direct connection to the Flutter development workflow.
+
+## Flutter AI Tooling Stack in 2026
+
+Flutter now describes its AI developer tooling as several connected parts:
+
+1. **Plugins**
+2. **MCP Server**
+3. **Agent Skills**
+4. **AI Rules**
+
+Official Flutter documentation recommends plugins as the easiest starting point because they bundle MCP support and skills together.
+
+### Plugins
+
+Plugins package AI tooling for supported editors and agents.
+
+They help reduce manual setup.
+
+### MCP Server
+
+The MCP server gives the AI assistant access to Flutter and Dart development tools.
+
+### Agent Skills
+
+Agent skills provide task-specific instructions for professional Flutter workflows.
+
+Flutter introduced official agent skills in 2026 to improve how AI assistants handle tasks such as localization, testing, and Dart-specific development practices.
+
+### AI Rules
+
+Rules define coding standards and project-specific guidance.
+
+For example:
+
+- Use Riverpod
+- Follow feature-first folders
+- Avoid deprecated Flutter APIs
+- Write tests for repositories
+- Use Material 3
+
+This helps keep generated code consistent.
+
+## What the Dart and Flutter MCP Server Can Do
+
+The current MCP server exposes several useful development capabilities.
+
+### 1. Analyze Flutter Errors
+
+The agent can inspect static analysis errors and runtime problems.
+
+This is useful for:
+
+- Dart analyzer warnings
+- Type errors
+- Broken imports
+- Layout problems
+- Runtime exceptions
+
+Flutter's official example shows an AI agent checking and fixing static and runtime issues through MCP tools.
+
+### 2. Inspect a Running Flutter App
+
+The MCP server can interact with a running Flutter application.
+
+Supported actions include:
+
+- Inspecting the widget tree
+- Reading runtime errors
+- Taking screenshots
+- Tapping elements
+- Entering text
+- Scrolling
+- Triggering hot reload
+
+This creates a much more interactive AI development workflow.
+
+### 3. Run Flutter Tests
+
+An agent can run tests and inspect the results.
+
+For example:
+
+> Run all unit tests and fix the failing repository test.
+
+This saves several manual steps.
+
+### 4. Search pub.dev
+
+The MCP server can search pub.dev for packages.
+
+You might ask:
+
+> Find a maintained Flutter package for secure local storage.
+
+The agent can search package options instead of guessing based on old training data.
+
+### 5. Manage Dependencies
+
+The server can help add or manage packages in \`pubspec.yaml\`.
+
+For example:
+
+> Add Riverpod and set up the basic providers.
+
+The assistant has more context about the actual project.
+
+### 6. Format Dart Code
+
+The MCP server can format code using Dart's tooling.
+
+That helps generated code match the project's normal formatting.
+
+## How to Set Up the Flutter MCP Server
+
+Flutter's current MCP documentation requires Dart 3.9 or newer.
+
+The core server command is:
+
+\`\`\`bash
+dart mcp-server
+\`\`\`
+
+Your AI client then connects to this process.
+
+The exact setup depends on the tool you use.
+
+## Flutter MCP with Cursor
+
+Cursor supports custom MCP servers.
+
+A project-level configuration looks like:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "dart": {
+      "command": "dart",
+      "args": [
+        "mcp-server"
+      ]
+    }
+  }
+}
+\`\`\`
+
+Place this inside:
+
+\`\`\`text
+.cursor/mcp.json
+\`\`\`
+
+Flutter's documentation also supports global Cursor configuration if you want the MCP server available across projects.
+
+After configuration, Cursor's agent gains access to the Dart and Flutter MCP tools.
+
+## Flutter MCP with GitHub Copilot
+
+Flutter's documentation also supports MCP workflows with GitHub Copilot in VS Code.
+
+You can then use Agent mode for prompts such as:
+
+> Check this Flutter project for runtime errors and fix the layout issue.
+
+The AI agent can use Flutter tooling rather than relying only on code inspection.
+
+## Flutter MCP with Codex CLI
+
+Flutter's current documentation includes a setup command for Codex CLI:
+
+\`\`\`bash
+codex mcp add dart -- dart mcp-server --force-roots-fallback
+\`\`\`
+
+This connects Codex to the Dart and Flutter MCP server for the current project.
+
+After setup, prompts can reference the project much more naturally.
+
+For example:
+
+> Analyze this Flutter project, run the tests, and fix any state-management errors.
+
+## Flutter MCP with Claude Code
+
+Flutter's MCP documentation also provides Claude Code setup.
+
+A manual setup example is:
+
+\`\`\`bash
+claude mcp add --transport stdio dart -- dart mcp-server
+\`\`\`
+
+Flutter also points to an official Flutter plugin route for Claude Code.
+
+This shows one important part of Flutter's AI direction in 2026.
+
+The ecosystem is not limited to one model provider.
+
+Flutter's AI strategy explicitly emphasizes open standards and agent independence.
+
+## Flutter MCP with Antigravity
+
+Google's Antigravity tooling has integrated Dart and Flutter MCP support.
+
+You can install the Dart MCP server from the MCP server list or configure it manually.
+
+Antigravity also supports agentic hot reload.
+
+Flutter's documentation says an agent in Antigravity can automatically hot reload a running application after making changes.
+
+That produces a workflow like:
+
+\`\`\`text
+Prompt
+↓
+Agent edits code
+↓
+Flutter hot reload
+↓
+Agent checks result
+↓
+Agent adjusts code
+\`\`\`
+
+This reduces context switching.
+
+## Example: Fix a Flutter RenderFlex Error with AI
+
+One of Flutter's official MCP examples involves a RenderFlex overflow.
+
+Normally, you might:
+
+1. Run the app.
+2. Read the error.
+3. Find the widget.
+4. inspect the layout.
+5. Edit the code.
+6. Hot reload.
+7. Check again.
+
+With MCP, you can ask:
+
+\`\`\`text
+Check for runtime and layout errors.
+Fix the RenderFlex overflow and verify the result.
+\`\`\`
+
+The agent can inspect the running application, identify the error, modify the code, and check the result.
+
+This is a good example of why MCP is more useful than a normal autocomplete tool.
+
+## Example: Let an AI Agent Test Your App
+
+Another useful workflow is test automation.
+
+You could ask:
+
+\`\`\`text
+Run all tests.
+Fix the failing authentication repository tests.
+Do not change public API behavior.
+\`\`\`
+
+The agent can:
+
+- Run tests
+- Read errors
+- Inspect implementation
+- Modify code
+- Run tests again
+
+This is especially useful for repetitive development tasks.
+
+## Example: Let the Agent Interact with the UI
+
+Flutter MCP can also connect to a running Flutter app through Flutter Driver.
+
+For mobile and desktop, the development setup involves enabling the Flutter Driver extension behind a development flag.
+
+Then an agent can perform actions such as:
+
+\`\`\`text
+Connect to the running app.
+Take a screenshot.
+Tap Sign In.
+Enter the test account details.
+Check for runtime errors.
+\`\`\`
+
+This starts to resemble automated QA combined with an AI coding agent.
+
+## Flutter MCP and Hot Reload
+
+Hot reload has always been one of Flutter's biggest developer productivity features.
+
+Now AI agents can participate in the same workflow.
+
+Flutter's 2026 roadmap specifically mentions work on making stateful hot reload work seamlessly with AI agents.
+
+This means the development loop becomes:
+
+\`\`\`text
+Describe change
+↓
+Agent edits code
+↓
+Hot reload
+↓
+Inspect UI
+↓
+Adjust
+\`\`\`
+
+For UI-heavy Flutter projects, this is especially useful.
+
+## Agent Skills vs MCP Server
+
+These two concepts serve different purposes.
+
+### MCP Server
+
+Gives the AI access to tools.
+
+Think:
+
+> What can the agent do?
+
+Examples:
+
+- Run tests
+- Read errors
+- Hot reload
+- Search packages
+
+### Agent Skills
+
+Give the agent specialized instructions.
+
+Think:
+
+> How should the agent perform the task?
+
+Examples:
+
+- Flutter localization workflow
+- Integration testing
+- Modern Dart patterns
+- Project setup practices
+
+Flutter's official AI tooling stack uses both together.
+
+## AI Rules vs MCP
+
+AI rules also solve a separate problem.
+
+Imagine your project follows these standards:
+
+\`\`\`text
+- Use Riverpod for state management.
+- Use repositories for data access.
+- Prefer immutable models.
+- Write tests for business logic.
+- Do not place API calls inside widgets.
+\`\`\`
+
+MCP gives the agent tools.
+
+Rules tell the agent how your project should be written.
+
+Together, they create a more reliable workflow.
+
+For structuring the project those rules describe, see [Flutter Clean Architecture in 2026](/blog/flutter-clean-architecture-2026).
+
+## Does Flutter MCP Replace Developers?
+
+No.
+
+Flutter itself describes AI tooling as something that should add to the developer experience rather than replace developers. Its 2026 AI strategy says Dart remains human-first and generated code should stay readable and manageable.
+
+The most useful role for MCP is removing repetitive work.
+
+Examples include:
+
+- Finding errors
+- Running tests
+- Inspecting runtime state
+- Updating dependencies
+- Checking packages
+- Repeating development tasks
+
+Architecture, product decisions, UX, security, and business logic still need human judgment.
+
+## Why MCP Is Useful for Small Development Teams
+
+Small teams often have limited engineering time.
+
+An AI agent connected to Flutter tooling can help with repetitive tasks such as:
+
+- Running tests
+- Checking build errors
+- Finding packages
+- Fixing basic UI problems
+- Formatting code
+- Inspecting runtime issues
+
+This gives developers more time for:
+
+- Product decisions
+- Architecture
+- User experience
+- Business logic
+- Performance
+
+For startups, this can reduce development friction without requiring a larger engineering team.
+
+## Flutter MCP Security Considerations
+
+Giving an AI agent tools introduces responsibility.
+
+Do not treat every tool call as harmless.
+
+Consider:
+
+- Which files the agent can access
+- Which commands it can run
+- Whether secrets exist in the project
+- Whether production systems are connected
+- Whether sensitive actions need approval
+
+For development machines, keep credentials and production access separated where possible.
+
+An AI agent with tool access should follow the same security boundaries as any other developer tool.
+
+## Best Flutter MCP Workflow in 2026
+
+A practical setup looks like this:
+
+| Area | Recommendation |
+|---|---|
+| Flutter | Latest stable version |
+| Dart | Dart 3.9+ |
+| AI assistant | Cursor, Copilot, Codex, Claude Code, or Antigravity |
+| Tool connection | Dart and Flutter MCP server |
+| Project knowledge | Agent Skills |
+| Coding standards | AI Rules |
+| Architecture | Clean architecture |
+| Testing | Unit + widget + integration tests |
+| Review | Human code review |
+
+The goal is not maximum automation.
+
+The goal is better development feedback.
+
+## Common Flutter MCP Mistakes
+
+### 1. Giving vague prompts
+
+Bad:
+
+> Fix my app.
+
+Better:
+
+> Run the analyzer, find the authentication errors, fix them, then run the tests again.
+
+### 2. Letting agents edit too much at once
+
+Keep tasks focused.
+
+Large changes are harder to review.
+
+### 3. Skipping Git
+
+Always commit working checkpoints.
+
+AI-generated changes should remain easy to inspect and revert.
+
+### 4. Trusting every package recommendation
+
+Check maintenance, documentation, security, and compatibility before adding dependencies.
+
+### 5. Skipping human review
+
+AI can produce working code that still has poor architecture.
+
+Review important changes.
+
+## Frequently Asked Questions
+
+### What is the Flutter MCP server?
+
+The Flutter MCP server is an official Dart and Flutter development tool that connects compatible AI coding assistants to Flutter tooling, project context, testing, runtime inspection, package management, and other development actions.
+
+### How to use MCP with Flutter?
+
+Install Dart 3.9 or newer, configure your AI client to run \`dart mcp-server\`, then allow the client to use the exposed Flutter and Dart tools.
+
+### What is the difference between Flutter MCP and AI coding assistants?
+
+An AI coding assistant provides the language model interface. MCP gives that assistant direct access to development tools such as the Dart analyzer, tests, runtime errors, pub.dev search, and Flutter app inspection.
+
+### Why does Flutter use MCP?
+
+MCP is an open protocol that lets Flutter work with multiple AI agents while giving those agents structured access to Dart and Flutter development tools.
+
+### What AI tools support Flutter MCP?
+
+Flutter's current documentation includes setups for tools such as Cursor, GitHub Copilot, Codex CLI, Claude Code, Antigravity, and other MCP-compatible clients.
+
+## Final Thoughts
+
+The **Flutter MCP server** is one of the more important changes to AI-assisted Flutter development in 2026.
+
+Instead of asking an AI assistant to guess what is wrong, you can give it direct access to Flutter tooling.
+
+It can analyze errors, inspect a running application, search packages, manage dependencies, run tests, and participate in the hot-reload workflow.
+
+The best setup combines MCP with agent skills, project rules, version control, tests, and human review.
+
+That gives developers faster feedback without sacrificing code quality.
+
+If you are learning modern Flutter development or building production apps with AI-assisted workflows, [explore more articles on the blog](/blog).
+
+## External Resources
+
+- [Dart and Flutter MCP Server Documentation](https://docs.flutter.dev/ai/mcp-server)
+- [Flutter AI Development Guide](https://docs.flutter.dev/ai/get-started)
+- [Flutter AI Strategy for 2026](https://flutter.dev/blog/how-dart-and-flutter-are-thinking-about-ai-in-2026)`
+  },
+  {
     id: "flutter-clean-architecture-2026",
     title: "Flutter Clean Architecture in 2026: A Practical Guide for Real Apps",
     summary: "Learn Flutter clean architecture step by step: layers, repository pattern, MVVM, Riverpod, folder structure, and testing practices for real apps.",

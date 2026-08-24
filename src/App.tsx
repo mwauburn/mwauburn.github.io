@@ -36,7 +36,8 @@ const PAGE_PATHS: Record<string, string> = {
   'flutter-state-management': '/blog/flutter-state-management-2026',
   'flutter-clean-architecture': '/blog/flutter-clean-architecture-2026',
   'add-ai-flutter-app': '/blog/add-ai-flutter-app-2026',
-  'build-ai-agent-flutter-app': '/blog/build-ai-agent-flutter-app-2026'
+  'build-ai-agent-flutter-app': '/blog/build-ai-agent-flutter-app-2026',
+  'flutter-mcp-server': '/blog/flutter-mcp-server-2026'
 };
 
 export default function App() {
@@ -49,7 +50,7 @@ export default function App() {
     return true; // Default dark theme
   });
   const [activeSection, setActiveSection] = useState<string>('home');
-  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy' | 'flutter-state-management' | 'flutter-clean-architecture' | 'add-ai-flutter-app' | 'build-ai-agent-flutter-app'>('portfolio');
+  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy' | 'flutter-state-management' | 'flutter-clean-architecture' | 'add-ai-flutter-app' | 'build-ai-agent-flutter-app' | 'flutter-mcp-server'>('portfolio');
 
   // Apply dark class to <html> element whenever darkMode changes
   useEffect(() => {
@@ -108,6 +109,10 @@ export default function App() {
         window.scrollTo(0, 0);
       } else if (pathname.includes('/blog/build-ai-agent-flutter-app-2026') || hash === '#build-ai-agent-flutter-app-2026') {
         setCurrentPage('build-ai-agent-flutter-app');
+        setActiveSection('blog');
+        window.scrollTo(0, 0);
+      } else if (pathname.includes('/blog/flutter-mcp-server-2026') || hash === '#flutter-mcp-server-2026') {
+        setCurrentPage('flutter-mcp-server');
         setActiveSection('blog');
         window.scrollTo(0, 0);
       } else if (hash === '#blog' || pathname === '/blog' || pathname.endsWith('/blog')) {
@@ -195,6 +200,10 @@ export default function App() {
       return;
     }
     if (currentPage === 'build-ai-agent-flutter-app') {
+      setActiveSection('blog');
+      return;
+    }
+    if (currentPage === 'flutter-mcp-server') {
       setActiveSection('blog');
       return;
     }
@@ -334,6 +343,14 @@ export default function App() {
             t={t}
             language={language}
             slug="build-ai-agent-flutter-app-2026"
+            setCurrentPage={setCurrentPage}
+            setActiveSection={setActiveSection}
+          />
+        ) : currentPage === 'flutter-mcp-server' ? (
+          <BlogPostPage
+            t={t}
+            language={language}
+            slug="flutter-mcp-server-2026"
             setCurrentPage={setCurrentPage}
             setActiveSection={setActiveSection}
           />
