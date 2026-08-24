@@ -11,8 +11,8 @@ import {
   ArrowLeft,
   Rss,
   Check,
-  Smartphone,
   Bot,
+  Cpu,
   Layers
 } from 'lucide-react';
 import { BlogPost, TranslationDict } from '../types';
@@ -26,17 +26,17 @@ interface BlogProps {
 }
 
 const articleVisuals = {
-  'offline-first-react-native': {
-    icon: Smartphone,
+  'flutter-clean-architecture-2026': {
+    icon: Layers,
     gradient: 'from-blue-950 via-slate-950 to-cyan-950',
     accent: 'text-cyan-300',
-    label: 'Offline Sync'
+    label: 'Clean Architecture'
   },
-  'skincare-ocr-gemini': {
+  'add-ai-flutter-app-2026': {
     icon: Bot,
     gradient: 'from-amber-950 via-zinc-950 to-fuchsia-950',
     accent: 'text-amber-300',
-    label: 'OCR + AI'
+    label: 'AI Integration'
   },
   'flutter-state-management-2026': {
     icon: Layers,
@@ -44,11 +44,11 @@ const articleVisuals = {
     accent: 'text-emerald-300',
     label: 'State Management'
   },
-  'mastering-react-motion-animations': {
-    icon: Layers,
+  'build-ai-agent-flutter-app-2026': {
+    icon: Cpu,
     gradient: 'from-violet-950 via-slate-950 to-cyan-950',
     accent: 'text-violet-300',
-    label: 'Motion UI'
+    label: 'AI Agents'
   }
 };
 
@@ -77,11 +77,31 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
     setTimeout(() => setCopiedCode(false), 2000);
   };
 
+  const dedicatedPages: Record<string, { page: string; path: string }> = {
+    'flutter-state-management-2026': {
+      page: 'flutter-state-management',
+      path: '/blog/flutter-state-management-2026'
+    },
+    'flutter-clean-architecture-2026': {
+      page: 'flutter-clean-architecture',
+      path: '/blog/flutter-clean-architecture-2026'
+    },
+    'add-ai-flutter-app-2026': {
+      page: 'add-ai-flutter-app',
+      path: '/blog/add-ai-flutter-app-2026'
+    },
+    'build-ai-agent-flutter-app-2026': {
+      page: 'build-ai-agent-flutter-app',
+      path: '/blog/build-ai-agent-flutter-app-2026'
+    }
+  };
+
   const openPost = (post: BlogPost) => {
-    if (post.id === 'flutter-state-management-2026') {
-      setCurrentPage('flutter-state-management');
+    const target = dedicatedPages[post.id];
+    if (target) {
+      setCurrentPage(target.page);
       setActiveSection('blog');
-      window.history.pushState(null, '', '/blog/flutter-state-management-2026');
+      window.history.pushState(null, '', target.path);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -134,8 +154,23 @@ export default function Blog({ t, setCurrentPage, setActiveSection }: BlogProps)
   };
 
   const ArticleVisual = ({ post, featured = false }: { post: BlogPost; featured?: boolean }) => {
-    const visual = articleVisuals[post.id as keyof typeof articleVisuals] ?? articleVisuals['mastering-react-motion-animations'];
+    const [coverFailed, setCoverFailed] = useState(false);
+    const visual = articleVisuals[post.id as keyof typeof articleVisuals] ?? Object.values(articleVisuals)[0];
     const Icon = visual.icon;
+
+    if (!coverFailed) {
+      return (
+        <div className="flex items-center justify-center overflow-hidden">
+          <img
+            src={`/assets/blog-${post.id}.png`}
+            alt={post.title}
+            loading="lazy"
+            onError={() => setCoverFailed(true)}
+            className="h-auto w-full object-contain"
+          />
+        </div>
+      );
+    }
 
     return (
       <div className={`relative overflow-hidden bg-gradient-to-br ${visual.gradient} ${featured ? 'min-h-[320px] lg:min-h-[390px]' : 'h-48'} flex items-center justify-center`}>

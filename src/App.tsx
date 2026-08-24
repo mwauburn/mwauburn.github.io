@@ -33,7 +33,10 @@ const PAGE_PATHS: Record<string, string> = {
   'shukar-daily': '/apps/shukar-daily',
   lumina: '/apps/lumina',
   packsavvy: '/apps/packsavvy',
-  'flutter-state-management': '/blog/flutter-state-management-2026'
+  'flutter-state-management': '/blog/flutter-state-management-2026',
+  'flutter-clean-architecture': '/blog/flutter-clean-architecture-2026',
+  'add-ai-flutter-app': '/blog/add-ai-flutter-app-2026',
+  'build-ai-agent-flutter-app': '/blog/build-ai-agent-flutter-app-2026'
 };
 
 export default function App() {
@@ -46,7 +49,7 @@ export default function App() {
     return true; // Default dark theme
   });
   const [activeSection, setActiveSection] = useState<string>('home');
-  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy' | 'flutter-state-management'>('portfolio');
+  const [currentPage, setCurrentPage] = useState<'portfolio' | 'blog' | 'projects' | 'contact' | 'terms' | 'privacy' | 'shukar-daily' | 'lumina' | 'packsavvy' | 'flutter-state-management' | 'flutter-clean-architecture' | 'add-ai-flutter-app' | 'build-ai-agent-flutter-app'>('portfolio');
 
   // Apply dark class to <html> element whenever darkMode changes
   useEffect(() => {
@@ -93,6 +96,18 @@ export default function App() {
         window.scrollTo(0, 0);
       } else if (pathname.includes('/blog/flutter-state-management-2026') || hash === '#flutter-state-management-2026') {
         setCurrentPage('flutter-state-management');
+        setActiveSection('blog');
+        window.scrollTo(0, 0);
+      } else if (pathname.includes('/blog/flutter-clean-architecture-2026') || hash === '#flutter-clean-architecture-2026') {
+        setCurrentPage('flutter-clean-architecture');
+        setActiveSection('blog');
+        window.scrollTo(0, 0);
+      } else if (pathname.includes('/blog/add-ai-flutter-app-2026') || hash === '#add-ai-flutter-app-2026') {
+        setCurrentPage('add-ai-flutter-app');
+        setActiveSection('blog');
+        window.scrollTo(0, 0);
+      } else if (pathname.includes('/blog/build-ai-agent-flutter-app-2026') || hash === '#build-ai-agent-flutter-app-2026') {
+        setCurrentPage('build-ai-agent-flutter-app');
         setActiveSection('blog');
         window.scrollTo(0, 0);
       } else if (hash === '#blog' || pathname === '/blog' || pathname.endsWith('/blog')) {
@@ -168,6 +183,18 @@ export default function App() {
       return;
     }
     if (currentPage === 'flutter-state-management') {
+      setActiveSection('blog');
+      return;
+    }
+    if (currentPage === 'flutter-clean-architecture') {
+      setActiveSection('blog');
+      return;
+    }
+    if (currentPage === 'add-ai-flutter-app') {
+      setActiveSection('blog');
+      return;
+    }
+    if (currentPage === 'build-ai-agent-flutter-app') {
       setActiveSection('blog');
       return;
     }
@@ -282,6 +309,31 @@ export default function App() {
           <BlogPostPage
             t={t}
             language={language}
+            slug="flutter-state-management-2026"
+            setCurrentPage={setCurrentPage}
+            setActiveSection={setActiveSection}
+          />
+        ) : currentPage === 'flutter-clean-architecture' ? (
+          <BlogPostPage
+            t={t}
+            language={language}
+            slug="flutter-clean-architecture-2026"
+            setCurrentPage={setCurrentPage}
+            setActiveSection={setActiveSection}
+          />
+        ) : currentPage === 'add-ai-flutter-app' ? (
+          <BlogPostPage
+            t={t}
+            language={language}
+            slug="add-ai-flutter-app-2026"
+            setCurrentPage={setCurrentPage}
+            setActiveSection={setActiveSection}
+          />
+        ) : currentPage === 'build-ai-agent-flutter-app' ? (
+          <BlogPostPage
+            t={t}
+            language={language}
+            slug="build-ai-agent-flutter-app-2026"
             setCurrentPage={setCurrentPage}
             setActiveSection={setActiveSection}
           />

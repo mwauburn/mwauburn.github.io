@@ -16,6 +16,7 @@ import { blogPostsData } from '../data/portfolioData';
 interface BlogPostPageProps {
   t: TranslationDict;
   language: 'en' | 'ur';
+  slug: string;
   setCurrentPage: (page: any) => void;
   setActiveSection: (sec: string) => void;
 }
@@ -205,12 +206,13 @@ function CodeBlock({ lang, code }: { lang: string; code: string }) {
 }
 
 export default function BlogPostPage({
+  slug,
   language,
   setCurrentPage,
   setActiveSection
 }: BlogPostPageProps) {
   const isUrdu = language === 'ur';
-  const post = blogPostsData.find((p) => p.id === 'flutter-state-management-2026');
+  const post = blogPostsData.find((p) => p.id === slug);
 
   const goBackToBlog = () => {
     setCurrentPage('blog');
@@ -244,6 +246,9 @@ export default function BlogPostPage({
   }
 
   const blocks = parseMarkdown(post.content);
+  const colonIdx = post.title.indexOf(':');
+  const titleMain = colonIdx > -1 ? `${post.title.slice(0, colonIdx)}:` : post.title;
+  const titleAccent = colonIdx > -1 ? post.title.slice(colonIdx + 1).trim() : '';
 
   return (
     <div
@@ -268,8 +273,8 @@ export default function BlogPostPage({
           className="relative mb-10 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg dark:border-zinc-900 dark:bg-black"
         >
           <img
-            src="/assets/blog-flutter-state-management-2026.png"
-            alt="Flutter State Management in 2026: setState vs Provider vs Riverpod vs BLoC"
+            src={`/assets/blog-${post.id}.png`}
+            alt={post.title}
             className="h-auto w-full object-cover"
           />
         </motion.div>
@@ -286,8 +291,14 @@ export default function BlogPostPage({
           </span>
 
           <h1 className="mt-6 font-serif text-4xl font-black leading-tight tracking-tight md:text-5xl">
-            Flutter State Management in 2026:{' '}
-            <span className="italic text-pink-500">4 Options Compared</span>
+            {titleAccent ? (
+              <>
+                {titleMain}{' '}
+                <span className="italic text-pink-500">{titleAccent}</span>
+              </>
+            ) : (
+              <span className="italic text-pink-500">{titleMain}</span>
+            )}
           </h1>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 font-mono text-xs font-semibold text-slate-500 dark:text-zinc-500">
@@ -445,11 +456,11 @@ export default function BlogPostPage({
         >
           <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-pink-500/10 blur-3xl" />
           <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500">
-            Planning a Flutter app?
+            Planning a project?
           </p>
           <h3 className="mt-3 text-xl font-black tracking-tight text-slate-900 dark:text-white md:text-2xl">
-            Let's design your architecture for{' '}
-            <span className="italic text-pink-500">MVP and beyond</span>
+            Let's design, build, and ship your{' '}
+            <span className="italic text-pink-500">next app</span>
           </h3>
           <button
             onClick={() => {
