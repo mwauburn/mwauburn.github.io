@@ -25,6 +25,7 @@ interface ContactPageProps {
 }
 
 const topics = ['Full-time role', 'Freelance project', 'Just saying hi', 'Bug report', 'Other'];
+const WEB3FORMS_ACCESS_KEY = '9c6b543e-e2c8-4cf2-a0da-7942d7d061c3';
 
 const socials = [
   { name: 'Email', icon: Mail, url: 'mailto:iawaisahmd@gmail.com' },
@@ -60,18 +61,20 @@ export default function ContactPage({ setCurrentPage, setActiveSection }: Contac
 
     setStatus('submitting');
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: `[${formData.topic}] Inbound Inquiry`,
-          message: formData.message
-        })
-      });
+      const payload = new FormData();
+      payload.append('access_key', WEB3FORMS_ACCESS_KEY);
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('subject', `[${formData.topic}] Inbound Inquiry`);
+      payload.append('message', formData.message);
 
-      if (!response.ok) throw new Error('Failed to send message');
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: payload
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.success) throw new Error(data.message || 'Failed to send message');
       setStatus('success');
       setFormData({ name: '', email: '', topic: 'Full-time role', message: '', agree: false });
     } catch {

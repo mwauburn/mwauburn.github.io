@@ -34,8 +34,8 @@ awaisahmd.me
 - React
 - TypeScript
 - Tailwind CSS
-- Express backend in `server.ts`
-- Nodemailer for contact form emails
+- Express backend in `server.ts` for local/API experiments
+- Web3Forms for static contact form emails on GitHub Pages
 
 Important commands:
 
@@ -119,30 +119,24 @@ Remove old generated assets that are no longer referenced by root `index.html` b
 The contact forms submit to:
 
 ```text
-/api/contact
+https://api.web3forms.com/submit
 ```
 
-Backend file:
+Static form provider:
 
 ```text
-server.ts
+Web3Forms
 ```
 
-Email is sent with Nodemailer. Local secrets are in `.env`, which is ignored by Git.
+The public access key is embedded in the React contact forms because GitHub Pages cannot read private environment variables at runtime.
 
-Do not commit `.env`.
+Current access key:
 
-Expected local `.env` keys:
-
-```env
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT="587"
-SMTP_USER="iawaisahmd@gmail.com"
-SMTP_PASS="GMAIL_APP_PASSWORD"
-CONTACT_RECEIVER_EMAIL="iawaisahmd@gmail.com"
+```text
+9c6b543e-e2c8-4cf2-a0da-7942d7d061c3
 ```
 
-Important: GitHub Pages is static and cannot run `server.ts`, so live email delivery will not work on GitHub Pages alone. To make live contact emails work, deploy the Node server to a host such as Render, Railway, or Vercel, or replace the API with a static-form provider.
+Important: GitHub Pages is static and cannot run `server.ts`, so production contact email must use Web3Forms or another static-form provider.
 
 ## Resume
 

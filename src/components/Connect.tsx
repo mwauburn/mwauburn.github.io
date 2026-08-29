@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Send, CheckCircle2, AlertCircle, ShieldAlert, Trash2, Key, Mail, X, MessageSquare } from 'lucide-react';
 import { TranslationDict, ContactMessage } from '../types';
 
+const WEB3FORMS_ACCESS_KEY = '9c6b543e-e2c8-4cf2-a0da-7942d7d061c3';
+
 interface ConnectProps {
   t: TranslationDict;
   language: 'en' | 'ur';
@@ -34,12 +36,20 @@ export default function Connect({ t, language, setCurrentPage }: ConnectProps) {
 
     setStatus('submitting');
     try {
-      const response = await fetch('/api/contact', {
+      const payload = new FormData();
+      payload.append('access_key', WEB3FORMS_ACCESS_KEY);
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('subject', formData.subject);
+      payload.append('message', formData.message);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: payload
       });
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {

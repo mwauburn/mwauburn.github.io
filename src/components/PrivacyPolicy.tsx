@@ -103,7 +103,7 @@ export default function PrivacyPolicy({ t, language, setCurrentPage, setActiveSe
                 <p>
                   {isUrdu 
                     ? 'جب آپ رابطہ فارم کے ذریعے پیغام بھیجتے ہیں، تو ہم آپ کا نام، ای میل پتہ، منتخب موضوع اور پیغام کا مواد جمع کرتے ہیں۔ یہ ڈیٹا ریسینڈ کے ذریعے بھیجا جاتا ہے اور اسے صرف آپ کے سوال کا جواب دینے کے لیے استعمال کیا جاتا ہے۔'
-                    : 'When you send a message through the contact form, we collect your name, email address, selected topic, and message content. This data is sent via Resend and is used solely to respond to your inquiry.'
+                    : 'When you send a message through the contact form, we collect your name, email address, selected topic, and message content. This data is sent via Web3Forms and is used solely to respond to your inquiry.'
                   }
                 </p>
               </div>
@@ -178,11 +178,11 @@ export default function PrivacyPolicy({ t, language, setCurrentPage, setActiveSe
                 </p>
               </div>
               <div>
-                <h3 className="font-extrabold text-slate-800 dark:text-slate-250 mb-1">Resend</h3>
+                <h3 className="font-extrabold text-slate-800 dark:text-slate-250 mb-1">Web3Forms</h3>
                 <p>
                   {isUrdu 
                     ? 'رابطہ فارم کی ای میلز پروسیس کرتا ہے۔ آپ کا پیغام میرے ان باکس تک پہنچنے کے لیے ریسینڈ کے سرورز سے گزرتا ہے۔'
-                    : "Processes contact form emails. Your message data passes through Resend's servers to reach my inbox."
+                    : "Processes contact form emails. Your message data passes through Web3Forms' servers to reach my inbox."
                   }
                 </p>
               </div>
