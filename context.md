@@ -61,7 +61,7 @@ Main URLs:
 /privacy
 /apps/shukar-daily
 /apps/lumina
-/apps/packsavvy
+/apps/packprep
 ```
 
 Old hash links such as `/#projects` and `/#blog` are still supported as fallback.
@@ -78,7 +78,7 @@ terms/index.html
 privacy/index.html
 apps/shukar-daily/index.html
 apps/lumina/index.html
-apps/packsavvy/index.html
+apps/packprep/index.html
 assets/
 resume.pdf
 ```
@@ -105,7 +105,7 @@ Copy-Item -LiteralPath (Join-Path $dist 'index.html') -Destination (Join-Path $r
 Copy-Item -LiteralPath (Join-Path $dist 'index.html') -Destination (Join-Path $root '404.html') -Force
 Copy-Item -LiteralPath (Join-Path $dist 'resume.pdf') -Destination (Join-Path $root 'resume.pdf') -Force
 Copy-Item -LiteralPath (Join-Path $dist 'assets') -Destination $root -Recurse -Force
-foreach ($path in @('blog','projects','contact','terms','privacy','apps\shukar-daily','apps\lumina','apps\packsavvy')) {
+foreach ($path in @('blog','projects','contact','terms','privacy','apps\shukar-daily','apps\lumina','apps\packprep','apps\packsavvy')) {
   $dir=Join-Path $root $path
   New-Item -ItemType Directory -Force -Path $dir | Out-Null
   Copy-Item -LiteralPath (Join-Path $dist 'index.html') -Destination (Join-Path $dir 'index.html') -Force
@@ -194,7 +194,7 @@ App privacy pages:
 ```text
 public/privacy/shukar-daily-privacy-policy.html
 public/privacy/lumina-privacy-policy.html
-public/privacy/packsavvy-privacy-policy.html
+public/privacy/packprep-privacy-policy.html
 ```
 
 Root copies:
@@ -202,7 +202,7 @@ Root copies:
 ```text
 privacy/shukar-daily-privacy-policy.html
 privacy/lumina-privacy-policy.html
-privacy/packsavvy-privacy-policy.html
+privacy/packprep-privacy-policy.html
 ```
 
 Privacy policy contact email should stay:
@@ -284,7 +284,7 @@ https://play.google.com/store/apps/details?id=com.shukrdaily.shukar_daily
 ```text
 Shukar Daily
 Lumina
-PackSavvy
+PackPrep
 ```
 
 ## Safety Notes

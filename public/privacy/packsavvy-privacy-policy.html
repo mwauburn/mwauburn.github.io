@@ -1,21 +1,37 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy - PackSavvy</title>
+  <title>Privacy Policy - PackPrep</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #030303;
-      --panel: rgba(12, 12, 14, 0.78);
-      --panel-strong: rgba(8, 8, 10, 0.94);
-      --line: rgba(255,255,255,0.09);
-      --text: #f8fafc;
-      --muted: #a1a1aa;
-      --soft: #71717a;
-      --accent: #818cf8;
-      --glow: rgba(99,102,241,0.22);
+      color-scheme: light dark;
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #64748b;
+      --soft: #94a3b8;
+      --line: #e2e8f0;
+      --accent: #4f46e5;
+      --accent-2: #0ea5e9;
+      --accent-soft: rgba(79, 70, 229, 0.1);
+      --shadow: 0 24px 70px -45px rgba(15, 23, 42, 0.55);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #030712;
+        --panel: rgba(15, 23, 42, 0.86);
+        --ink: #f8fafc;
+        --muted: #cbd5e1;
+        --soft: #94a3b8;
+        --line: rgba(148, 163, 184, 0.18);
+        --accent: #818cf8;
+        --accent-2: #38bdf8;
+        --accent-soft: rgba(129, 140, 248, 0.16);
+        --shadow: 0 24px 70px -35px rgba(0, 0, 0, 0.8);
+      }
     }
 
     * { box-sizing: border-box; }
@@ -24,115 +40,155 @@
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(760px 420px at 22% 0%, var(--glow), transparent 65%),
-        radial-gradient(520px 360px at 90% 8%, rgba(236,72,153,0.12), transparent 60%),
-        linear-gradient(180deg, #020202 0%, #050505 100%);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(760px 460px at 18% -8%, rgba(79, 70, 229, 0.18), transparent 62%),
+        radial-gradient(620px 420px at 92% 4%, rgba(14, 165, 233, 0.16), transparent 60%),
+        linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 94%, #0f172a 6%));
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; }
-    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
-    .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 56px; }
-    .brand { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; font-weight: 700; }
-    .mark { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); color: var(--accent); }
-    .nav a { text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 800; border: 1px solid var(--line); background: rgba(255,255,255,0.04); padding: 9px 14px; border-radius: 999px; }
-    .hero { padding: 36px 0 34px; border-bottom: 1px solid var(--line); }
-    .eyebrow { color: var(--accent); font-size: 10px; font-weight: 900; letter-spacing: .34em; text-transform: uppercase; margin-bottom: 16px; }
-    h1 { margin: 0; font-size: clamp(44px, 8vw, 88px); line-height: .92; letter-spacing: -0.055em; font-weight: 950; }
-    .lead { max-width: 720px; margin: 24px 0 0; color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 72px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 56px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+      font-size: 12px;
+      letter-spacing: -0.04em;
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      padding: 9px 14px;
+      border-radius: 999px;
+    }
+
+    .hero { padding: 32px 0 34px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-size: 10px; font-weight: 900; letter-spacing: .32em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { margin: 0; max-width: 840px; font-size: clamp(42px, 7vw, 82px); line-height: .98; letter-spacing: -0.05em; font-weight: 950; }
+    .lead { max-width: 720px; margin: 22px 0 0; color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
     .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0 0; }
-    .meta div, section, .contact { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; backdrop-filter: blur(18px); }
+    .meta div, .card, .contact {
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
     .meta div { padding: 16px; }
     .meta span { display: block; color: var(--soft); font-size: 10px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
     .meta strong { display: block; margin-top: 4px; font-size: 14px; }
+
     main { display: grid; gap: 18px; margin-top: 34px; }
-    section { padding: 26px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .card { padding: 26px; }
     h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -0.02em; }
     p { margin: 0 0 13px; color: var(--muted); }
     ul { margin: 0; padding-left: 20px; color: var(--muted); }
     li { margin: 8px 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-soft), transparent);
+    }
     .contact { margin-top: 18px; padding: 24px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
     .contact p { margin: 0; }
     .email { color: var(--accent); font-weight: 900; text-decoration: none; white-space: nowrap; }
     footer { color: var(--soft); font-size: 12px; text-align: center; margin-top: 38px; }
+
     @media (max-width: 760px) {
-      .wrap { width: min(100% - 24px, 1040px); padding-top: 28px; }
+      .wrap { width: min(100% - 24px, 1040px); padding-top: 24px; }
       .nav, .contact { align-items: flex-start; flex-direction: column; }
       .meta, .grid { grid-template-columns: 1fr; }
-      section { padding: 20px; }
+      .card { padding: 20px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <nav class="nav">
-      <div class="brand"><span class="mark">*</span><span>PackSavvy</span></div>
-      <a href="/en">Back to Portfolio</a>
+      <div class="brand"><span class="mark">PP</span><span>PackPrep</span></div>
+      <a href="/">Back to Portfolio</a>
     </nav>
 
     <header class="hero">
       <div class="eyebrow">Privacy Policy</div>
-      <h1>PackSavvy</h1>
-      <p class="lead">A smart travel packing app for trips, bags, packing lists, outfit planning, and local travel organization.</p>
+      <h1>PackPrep</h1>
+      <p class="lead">A travel packing app for trips, bags, packing lists, outfit planning, photo proof, reminders, and local travel organization.</p>
       <div class="meta">
-        <div><span>Last Updated</span><strong>August 23, 2026</strong></div>
+        <div><span>Last Updated</span><strong>August 30, 2026</strong></div>
         <div><span>Contact</span><strong>leonicxapp@gmail.com</strong></div>
-        <div><span>Data Model</span><strong>Trip data local</strong></div>
+        <div><span>Data Model</span><strong>Local-first trip data</strong></div>
       </div>
     </header>
 
     <main>
-      <section>
+      <section class="card notice">
         <h2>Overview</h2>
-        <p>This privacy policy explains how PackSavvy handles information when you use the app. The app is designed to collect only what is needed for the app experience and to keep personal app data on your device whenever possible.</p>
+        <p>This privacy policy explains how PackPrep, listed as Travel Packing List: PackPrep, handles information when you use the app. PackPrep is designed to keep your personal trip, packing, and bag data on your device whenever possible.</p>
         <p>If you have questions about this policy, contact us at <a class="email" href="mailto:leonicxapp@gmail.com">leonicxapp@gmail.com</a>.</p>
       </section>
 
       <div class="grid">
-        <section>
-          <h2>Information We Store</h2>
+        <section class="card">
+          <h2>Information Stored In The App</h2>
           <ul>
-                        <li>Trip names, destinations, travel dates, and traveler details.</li>
-            <li>Packing lists, bag assignments, weights, and progress.</li>
+            <li>Trip names, destinations, travel dates, and traveler details.</li>
+            <li>Packing lists, item categories, bag assignments, item weights, and progress.</li>
             <li>Photo proof images only when you add them to packed items.</li>
-            <li>Preferences for professions, pets, special needs, and outfit planning.</li>
+            <li>Preferences for professions, pets, special needs, reminders, and outfit planning.</li>
           </ul>
         </section>
-        <section>
+
+        <section class="card">
           <h2>Information We Do Not Sell</h2>
           <ul>
             <li>We do not sell your personal data.</li>
-            <li>We do not use your app data for advertising profiles.</li>
-            <li>We do not share private app content with data brokers.</li>
+            <li>We do not use your private app data for advertising profiles.</li>
+            <li>We do not share private trip, packing, or photo proof content with data brokers.</li>
           </ul>
         </section>
       </div>
 
-      <section>
+      <section class="card">
         <h2>Local Storage</h2>
-        <p>Most app information is stored locally on your device. If you uninstall the app or clear app storage, locally stored data may be deleted. We recommend using your device backup options if you want to preserve local app data.</p>
+        <p>Most app information is stored locally on your device. If you uninstall the app or clear app storage, locally stored data may be deleted. Use your device backup options if you want to preserve local app data.</p>
       </section>
 
-      <section>
+      <section class="card">
+        <h2>Permissions</h2>
+        <p>PackPrep may request device permissions only for related app features. Camera or photo access is used for photo proof. Notifications are used for reminders. Storage access, when requested by the operating system, is used for app files and selected user content.</p>
+        <p>You can deny or revoke permissions in device settings. Some features may stop working after permission is removed.</p>
+      </section>
+
+      <section class="card">
         <h2>Third Party Services</h2>
         <p>The app may use platform services such as Google Play, app stores, device notifications, camera or photo picker permissions, and operating system storage APIs. These services are governed by their own privacy policies and device permission controls.</p>
       </section>
 
-      <section>
-        <h2>Permissions</h2>
-        <p>When the app requests a device permission, it is used only for the related feature. You can deny or revoke permissions in your device settings, but some features may stop working after permission is removed.</p>
+      <section class="card">
+        <h2>Data Security And Retention</h2>
+        <p>Local app data is protected by your device security settings. PackPrep keeps local data until you delete it, reset app storage, or uninstall the app. We cannot recover data that only exists on your device.</p>
       </section>
 
-      <section>
+      <section class="card">
         <h2>Children's Privacy</h2>
         <p>The app is not intended to knowingly collect personal information from children. If you believe a child has provided personal information, contact us and we will help review the issue.</p>
       </section>
 
-      <section>
+      <section class="card">
         <h2>Policy Updates</h2>
         <p>We may update this policy when app features, store requirements, or legal obligations change. The updated policy will be posted on this page with a revised date.</p>
       </section>

@@ -5,7 +5,7 @@
 ## Main Pages
 
 - [Home](https://awaisahmd.me/): Portfolio homepage with profile, skills, experience, projects, guestbook, and contact sections.
-- [Projects](https://awaisahmd.me/projects): Main project gallery featuring Shukar Daily, Lumina, and PackSavvy.
+- [Projects](https://awaisahmd.me/projects): Main project gallery featuring Shukar Daily, Lumina, and PackPrep.
 - [Blog](https://awaisahmd.me/blog): Technical writing and development articles.
 - [Contact](https://awaisahmd.me/contact): Contact page for project inquiries.
 
@@ -13,7 +13,7 @@
 
 - [Shukar Daily](https://awaisahmd.me/apps/shukar-daily): Offline-first Islamic gratitude journal and counter app.
 - [Lumina](https://awaisahmd.me/apps/lumina): Cosmetic ingredient scanner and skin safety analyzer.
-- [PackSavvy](https://awaisahmd.me/apps/packsavvy): Travel packing list and trip planning app.
+- [PackPrep](https://awaisahmd.me/apps/packprep): Travel packing list and trip planning app, listed as Travel Packing List: PackPrep.
 
 ## Featured Blog Posts
 

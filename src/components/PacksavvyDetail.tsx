@@ -12,15 +12,15 @@ interface PacksavvyDetailProps {
 export default function PacksavvyDetail({ setCurrentPage, setActiveSection }: PacksavvyDetailProps) {
   return (
     <AppDetailTemplate
-      name="PackSavvy"
+      name="PackPrep"
       description="Smart travel packing list app with trip planning, bag management, and offline-first storage."
-      overview="PackSavvy turns a trip idea into practical packing lists. It captures destination, dates, travelers, transport, accommodation, professions, pets, and special needs, then helps users organize items into bags, verify packed essentials, and avoid last-minute forgetting."
-      appIcon={<img src="/app-icons/packsavvy.png" alt="PackSavvy app icon" className="h-full w-full object-cover rounded-2xl" />}
+      overview="PackPrep, listed as Travel Packing List: PackPrep, turns a trip idea into practical packing lists. It captures destination, dates, travelers, transport, accommodation, professions, pets, and special needs, then helps users organize items into bags, verify packed essentials, and avoid last-minute forgetting."
+      appIcon={<img src="/app-icons/packsavvy.png" alt="PackPrep app icon" className="h-full w-full object-cover rounded-2xl" />}
       theme="indigo"
       actions={[
         { label: 'GitHub', href: 'https://github.com/iawaisahmd/packsavvy', icon: 'github' },
         { label: 'Web Demo', href: 'https://packsavvy.awrs.me', icon: 'external' },
-        { label: 'Privacy Policy', href: '/privacy/packsavvy-privacy-policy.html', icon: 'privacy' }
+        { label: 'Privacy Policy', href: '/privacy/packprep-privacy-policy.html', icon: 'privacy' }
       ]}
       specs={[
         ['TYPE', 'Travel Utility'],
@@ -61,8 +61,8 @@ export default function PacksavvyDetail({ setCurrentPage, setActiveSection }: Pa
         { src: '/screens/packsavvy_07.png', title: 'Did I Forget?' },
         { src: '/screens/packsavvy_01.png', title: 'Splash Screen' }
       ]}
-      privacyHref="/privacy/packsavvy-privacy-policy.html"
-      privacyText="Learn how PackSavvy handles local trip and packing data."
+      privacyHref="/privacy/packprep-privacy-policy.html"
+      privacyText="Learn how PackPrep handles local trip and packing data."
       setCurrentPage={setCurrentPage}
       setActiveSection={setActiveSection}
     />

@@ -188,12 +188,12 @@ export const projectsData: Project[] = [
   },
   {
     id: "packsavvy",
-    name: "Packsavvy",
+    name: "PackPrep",
     index: "03",
     quarter: "Q4 2024",
     category: "UTILITY APP",
-    tagline: "Smart Packing List Companion",
-    description: "Packsavvy is an elegant, intelligent utility app that generates bespoke, travel checklist templates adjusted for local destination climates, trip duration, and custom-added activities. Designed to reduce pre-travel cognitive load through stateful offline synchronization.",
+    tagline: "Smart travel packing list companion",
+    description: "PackPrep is an elegant travel packing list app, listed as Travel Packing List: PackPrep, that generates bespoke checklist templates adjusted for local destination climates, trip duration, and custom-added activities. Designed to reduce pre-travel cognitive load through stateful offline synchronization.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Zustand", "Weather API"],
     features: [
       "Intelligent weather-informed automated checklist generator",

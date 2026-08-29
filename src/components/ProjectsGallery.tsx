@@ -113,7 +113,7 @@ const GALLERY_PROJECTS: GalleryProject[] = [
     index: '03',
     category: 'MOBILE APP',
     quarter: 'Q4 2024',
-    name: 'Packsavvy',
+    name: 'PackPrep',
     tagline: 'Smart packing list companion with trip planning, activity templates, and travel checklist workflows',
     taglineUr: 'Ø³ÙØ± Ú©ÛŒ Ù¾ÛŒÚ©Ù†Ú¯ØŒ Ú†ÛŒÚ© Ù„Ø³Ù¹Ø³ Ø§ÙˆØ± Ø³Ù…Ø§Ø±Ù¹ Ù¹Ø±Ù¾ Ù¾Ù„Ø§Ù†Ù†Ú¯ Ú©ÛŒ Ø§ÛŒÙ¾',
     tags: ['Flutter', 'Dart', 'Travel', 'Checklist', 'Offline'],

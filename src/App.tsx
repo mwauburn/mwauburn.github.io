@@ -32,7 +32,7 @@ const PAGE_PATHS: Record<string, string> = {
   privacy: '/privacy',
   'shukar-daily': '/apps/shukar-daily',
   lumina: '/apps/lumina',
-  packsavvy: '/apps/packsavvy',
+  packsavvy: '/apps/packprep',
   'flutter-state-management': '/blog/flutter-state-management-2026',
   'flutter-clean-architecture': '/blog/flutter-clean-architecture-2026',
   'add-ai-flutter-app': '/blog/add-ai-flutter-app-2026',
@@ -131,7 +131,7 @@ export default function App() {
         setCurrentPage('lumina');
         setActiveSection('lumina');
         window.scrollTo(0, 0);
-      } else if (hash === '#packsavvy' || pathname === '/packsavvy' || pathname.endsWith('/apps/packsavvy') || pathname.endsWith('/packsavvy')) {
+      } else if (hash === '#packsavvy' || hash === '#packprep' || pathname === '/packsavvy' || pathname === '/packprep' || pathname.endsWith('/apps/packsavvy') || pathname.endsWith('/apps/packprep') || pathname.endsWith('/packsavvy') || pathname.endsWith('/packprep')) {
         setCurrentPage('packsavvy');
         setActiveSection('packsavvy');
         window.scrollTo(0, 0);

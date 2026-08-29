@@ -294,7 +294,7 @@ export default function Projects({ t, language, setCurrentPage }: ProjectsProps)
                 <div className="flex items-center justify-between border-b border-indigo-950 pb-1 px-1 mt-0.5">
                   <div className="flex items-center gap-0.5">
                     <ShoppingBag className="h-2 w-2 text-indigo-400" />
-                    <span className="text-[8px] font-sans font-extrabold text-indigo-100">Packsavvy</span>
+                  <span className="text-[8px] font-sans font-extrabold text-indigo-100">PackPrep</span>
                   </div>
                   <span className="text-[6px] font-mono text-indigo-500 font-bold uppercase tracking-wider">{isUrdu ? "لندن" : "London"}</span>
                 </div>

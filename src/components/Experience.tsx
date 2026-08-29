@@ -52,7 +52,7 @@ export default function Experience({ t, language }: ExperienceProps) {
       color: 'from-pink-500 to-indigo-500',
       details: {
         en: [
-          'Architected and published major client-facing applications including Packsavvy (Offline-First Travel Planner), Lumina (ML Skincare OCR scanner), and Shukar Daily (Gratitude Journal).',
+          'Architected and published major client-facing applications including PackPrep (Offline-First Travel Planner), Lumina (ML Skincare OCR scanner), and Shukar Daily (Gratitude Journal).',
           'Configured full-stack deployment services utilizing Express servers, Firestore, and Supabase PostgreSQL with near-instant query resolution.',
           'Maintained high client satisfaction ratings through robust architectures, performance tuning, and elegant responsive interfaces.'
         ],
