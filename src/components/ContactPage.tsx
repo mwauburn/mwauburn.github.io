@@ -31,7 +31,7 @@ const socials = [
   { name: 'Email', icon: Mail, url: 'mailto:iawaisahmd@gmail.com' },
   { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/iawaisahmd' },
   { name: 'GitHub', icon: Github, url: 'https://github.com/iawaisahmd' },
-  { name: 'Twitter/X', icon: Twitter, url: 'https://x.com/iawaisahmd' },
+  { name: 'Twitter/X', icon: Twitter, url: 'https://x.com/awaisahmdd' },
 ];
 
 export default function ContactPage({ setCurrentPage, setActiveSection }: ContactPageProps) {
