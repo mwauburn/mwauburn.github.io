@@ -66,7 +66,11 @@ export default function App() {
   // Sync state on hash/popstate and URL pathname
   useEffect(() => {
     const handleUrlChange = () => {
-      const pathname = window.location.pathname;
+      const rawPathname = window.location.pathname;
+      // Normalize: strip trailing slashes so '/blog/' and '/blog' detect the same page.
+      // Required because GitHub Pages 301s '/blog' to '/blog/' on refresh, and the
+      // route checks below use exact/endsWith matching that fails on '/blog/'.
+      const pathname = rawPathname.replace(/\/+$/, '') || '/';
       const hash = window.location.hash;
       const urlParams = new URLSearchParams(window.location.search);
       const langQuery = urlParams.get('lang');
