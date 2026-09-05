@@ -1,5 +1,9 @@
+import type { MouseEvent as ReactMouseEvent } from 'react';
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 import { TranslationDict } from '../types';
+
+// Tracks whether preferredSource.init() has been called (call once).
+let preferredSourceInitialized = false;
 
 interface FooterProps {
   t: TranslationDict;
@@ -50,6 +54,30 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Google Preferred Sources (advanced JS integration).
+  // Opens Google's native "Add as Preferred Source" dialog for this domain.
+  // Falls back to the ?q= deeplink if the publisher.js library hasn't loaded.
+  const handlePreferredSourceClick = (e: ReactMouseEvent<HTMLAnchorElement>) => {
+    const w = window as unknown as {
+      PREFERRED_SOURCE?: {
+        api?: {
+          init?: (options: { theme?: string; lang?: string }) => void;
+          addPreferredSource?: () => void;
+        };
+      };
+    };
+    const api = w.PREFERRED_SOURCE?.api;
+    if (api?.addPreferredSource) {
+      e.preventDefault();
+      if (!preferredSourceInitialized && api.init) {
+        api.init({ theme: 'dark' });
+        preferredSourceInitialized = true;
+      }
+      api.addPreferredSource();
+    }
+    // Otherwise let the browser follow the deeplink href as fallback.
+  };
+
   return (
     <footer
       id="footer-section"
@@ -67,6 +95,34 @@ export default function Footer({ language, setCurrentPage, setActiveSection }: F
                 : "{ Work, for Allah will observe your deeds, and so will His Messenger and the believers. }"
               }
             </p>
+            <a
+              href="https://www.google.com/preferences/source?q=awaisahmd.me"
+              target="_blank"
+              rel="noreferrer noopener"
+              title="Add Awais Ahmad as a Preferred Source on Google"
+              onClick={handlePreferredSourceClick}
+              className="group inline-flex px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/40 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 hover:border-pink-500/30 items-center gap-1.5 transition-all cursor-pointer text-[10px] font-mono tracking-wider font-semibold uppercase"
+            >
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true">
+                <path
+                  fill="#4285F4"
+                  d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.57 5.57 0 0 1-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A11.99 11.99 0 0 0 12 24z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29a12 12 0 0 0 0 10.76l3.98-3.09z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42A11.98 11.98 0 0 0 12 0 11.99 11.99 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"
+                />
+              </svg>
+              <span>Make me preferred on Google</span>
+            </a>
           </div>
 
           {/* Empty column spacer (1 column) */}
